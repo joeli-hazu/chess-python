@@ -1,0 +1,48 @@
+chess-python/
+│
+├── main.py
+│
+├── core/
+│   ├── __init__.py
+│   ├── board.py
+│   ├── pieces.py
+│   ├── move_validator.py
+│   ├── game_state.py
+│   └── ai.py
+│
+├── gui/
+│   ├── __init__.py
+│   ├── renderer.py
+│   ├── input_handler.py
+│   └── menu.py
+│
+├── utils/
+│   ├── __init__.py
+│   ├── constants.py
+│   └── helpers.py
+│
+├── assets/
+│   ├── chess_pieces/
+│   │   ├── w_pawn.png
+│   │   ├── w_rook.png
+│   │   ├── w_knight.png
+│   │   ├── w_bishop.png
+│   │   ├── w_queen.png
+│   │   ├── w_king.png
+│   │   ├── b_pawn.png
+│   │   ├── b_rook.png
+│   │   ├── b_knight.png
+│   │   ├── b_bishop.png
+│   │   ├── b_queen.png
+│   │   └── b_king.png
+│   │
+│   ├── sounds/
+│   └── fonts/
+│
+├── data/
+│   ├── config.json
+│   └── saved_games/
+│       └── example_game.json
+│
+├── requirements.txt
+└── README.md
