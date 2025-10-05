@@ -5,11 +5,12 @@ class GameState():
         # create 2D list. it will be list of list
 
         # the bord is an 8x8 2D list, eaach element of the list had 2 charachters.
-        # the second charachter represent the color of the piece, black or white
+        # the second char
+        # chter represent the color of the piece, black or white
         # the second charachter represent the type of the piece "K", "W", "R", "B", "N" or "P".
         # the "--" represent an empty space with no piece on the chess bord
 
-        self.bord = [
+        self.board = [
             
             # the black side on the chess bord
             ["bR", "bN", "bB", "bQ", "bB", "bN", "bN"],

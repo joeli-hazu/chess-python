@@ -46,3 +46,12 @@ chess-python/
 │
 ├── requirements.txt
 └── README.md
+
+
+
+
+hur jag man runar koden via terminalen 
+
+1. cd ~/chess-python
+2. python3 -m Chess.chessmain
+
