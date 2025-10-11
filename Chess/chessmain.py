@@ -31,8 +31,8 @@ def loadImages():
         # laddar bilden för t.ex. "wp.png" (vit bonde)
         # skalar ner bilden till rätt storlek (SQ_SIZE)
         IMAGES[piece] = p.transform.scale(
-            p.image.load("../images/" + piece + ".png"),
-            (SQ_SIZE, SQ_SIZE)
+            p.image.load("images/" + piece + ".png"),
+            (SQ_SIZE, SQ_SIZE) # skalra ner bilerna till rätt storlek
         )
     # Nu kan vi senare rita ut en pjäs med IMAGES['wp'] t.ex.
 
@@ -67,6 +67,9 @@ def main():
         p.display.flip()                          # uppdaterar hela skärmen
 
 
+
+
+
 # --- FUNKTION: Ritar hela spelets tillstånd ---
 def drawGameState(screen, gs):
     """
@@ -75,8 +78,8 @@ def drawGameState(screen, gs):
      1. drawBoard() – ritar brädets rutor
      2. drawPieces() – ritar pjäser ovanpå rutorna
     """
-    drawBoard(screen)
-    drawPieces(screen, gs.board)
+    drawBoard(screen) # 1. drawBoard() – ritar brädets rutor
+    drawPieces(screen, gs.board) #  2. drawPieces() – ritar pjäser ovanpå rutorna
 
 
 # --- FUNKTION: Rita rutorna på brädet ---
@@ -85,26 +88,25 @@ def drawBoard(screen):
     Ritar själva rutmönstret (8x8).
     Färgerna växlar mellan vit och grå med hjälp av (r + c) % 2.
     """
-    colors = [p.Color("white"), p.Color("gray")]      # två färger för rutorna
+    colors = [p.Color("white"), p.Color("dark green")]      # två färger för rutorna den första är 0 och den andra är 1
     for r in range(DIMENSION):                        # loopar genom varje rad
         for c in range(DIMENSION):                    # loopar genom varje kolumn
-            color = colors[(r + c) % 2]               # växlar färg mellan 0 och 1
+            color = colors[(r + c) % 2]               # växlar färg mellan 0 och 1. om summan av platsen i kolumn och raden är ett udda tal blir det en grått färg men jämn tal blir vit
             p.draw.rect(                              # ritar ut rektangel
                 screen, color,
                 p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE)
             )
-
-
+ 
 # --- FUNKTION: Rita ut pjäserna på brädet ---
 def drawPieces(screen, board):
     """
     Ritar ut pjäserna utifrån nuvarande brädstatus (gs.board).
     """
-    for r in range(DIMENSION):
-        for c in range(DIMENSION):
-            piece = board[r][c]           # hämtar pjäsen i raden r, kolumn c
+    for r in range(DIMENSION): # loopar genom varje rad
+        for c in range(DIMENSION): # loopar genom varje kolumn
+            piece = board[r][c]           # hämtar pjäsen i raden r, kolumn c den kommer från gamestate board
             if piece != "--":             # "--" betyder tom ruta
-                # ritar bilden på rätt plats
+                # ritar bilden på rätt plats med rätt namn. 
                 screen.blit(IMAGES[piece], 
                             p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
 

@@ -52,6 +52,6 @@ chess-python/
 
 hur jag man runar koden via terminalen 
 
-1. cd ~/chess-python
-2. python3 -m Chess.chessmain
+cd ~/chess-python
+python3 -m Chess.chessmain
 
